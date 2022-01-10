@@ -27,8 +27,9 @@
 					<label class="form-label" for="prezzo">Prezzo</label>
 					<input type="text" class="form-control" id="prezzo" th:field="*{prezzo}">
 				</div>
-				<div class="col-12">
-					<button class="btn btn-primary" type="submit">Save</button>
+				<div class="col-12 d-flex d-flex-row">
+					<button class="btn btn-primary me-2" type="submit">Save</button>
+					<a class="btn btn-secondary" th:href="@{/}">Homepage</a>
 				</div>
 			</div>	
 			</form>
