@@ -17,4 +17,8 @@ public class PizzaService {
 	public List<Pizza> findAllSortedByPrice() {
 		return repository.findAll(Sort.by("prezzo"));
 	}
+	
+	public Pizza save(Pizza pizza) {
+		return repository.save(pizza);
+	}
 }
