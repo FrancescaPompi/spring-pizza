@@ -1,6 +1,7 @@
 package org.generation.italy.controller;
 
 import org.generation.italy.model.Pizza;
+import org.generation.italy.service.IngredientiService;
 import org.generation.italy.service.PizzaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +18,9 @@ public class PizzaController {
 	@Autowired
 	private PizzaService service;
 	
+	@Autowired
+	private IngredientiService ingredientiService;
+	
 	@GetMapping
 	public String list(Model model) {
 		model.addAttribute("list", service.findAllSortedByPrice());
@@ -26,6 +30,7 @@ public class PizzaController {
 	@GetMapping("/create")
 	public String create(Model model) {
 		model.addAttribute("pizza", new Pizza());
+		model.addAttribute("ingredientiList", ingredientiService.findAllSortedByNome());
 		return "/pizze/edit";
 	}
 	
