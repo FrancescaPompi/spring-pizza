@@ -17,7 +17,10 @@
                     <div class="fw-bold" th:text="${item.nome}"></div>
                     <span th:text="${item.descrizione}"></span>
                 </div>
-                <span th:text="${item.prezzo}"></span>
+                <span class="me-4" th:text="${item.prezzo}"></span>
+                <span>
+                	<a class="btn btn-primary" th:href="@{|/pizze/edit/${item.id}|}"><i class="fas fa-edit"></i></a>
+                </span>
             </li>
         </ul>
         <p th:unless="${list.size() > 0}">No elements in list</p>

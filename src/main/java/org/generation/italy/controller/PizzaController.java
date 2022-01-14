@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -38,5 +39,13 @@ public class PizzaController {
 	public String doCreate(@ModelAttribute("pizza") Pizza formPizza, Model model) {
 		service.save(formPizza);
 		return "redirect:/pizze";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String edit(@PathVariable("id") Integer id, Model model) {
+		model.addAttribute("edit", true);
+		model.addAttribute("pizza", service.getById(id));
+		model.addAttribute("ingredientiList", ingredientiService.findAllSortedByNome());
+		return "/pizze/edit";
 	}
 }
