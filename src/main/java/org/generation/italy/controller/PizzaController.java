@@ -65,4 +65,11 @@ public class PizzaController {
 		redirectAttributes.addFlashAttribute("successMessage", "Pizza modificata!");
 		return "redirect:/pizze";
 	}
+	
+	@GetMapping("/delete/{id}")
+	public String doDelete(@PathVariable("id") Integer id, RedirectAttributes redirectAttributes) {
+		service.deleteById(id);
+		redirectAttributes.addFlashAttribute("successMessage", "Pizza eliminata!");
+		return "redirect:/pizze";
+	}
 }

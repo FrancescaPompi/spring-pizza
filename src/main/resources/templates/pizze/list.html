@@ -20,6 +20,7 @@
                 <span class="me-4" th:text="${item.prezzo}"></span>
                 <span>
                 	<a class="btn btn-primary" th:href="@{|/pizze/edit/${item.id}|}"><i class="fas fa-edit"></i></a>
+                	<a class="btn btn-primary" th:href="@{|/pizze/delete/${item.id}|}" onclick="return confirm('Sei sicuro?')"><i class="fas fa-trash-alt"></i></a>
                 </span>
             </li>
         </ul>
